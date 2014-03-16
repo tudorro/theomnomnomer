@@ -39,7 +39,7 @@ int random();   //Get a random number from 1 to 19
 void die();
 
 char game[20][20];  //The matrix with the things from the screen
-unsigned char power[2];
+unsigned char power[3];
 int points;
 int money;
 int multiplyer = 1;
@@ -251,6 +251,11 @@ void commandParse(char str[81]){
                     money -= 5;
                     multiplyer = 2;
                     printf("You have %d double points powers!                ", power[1]);
+                }
+                else if((strncmp(msg, "nostress", 8) == 0) && money >= 10){
+                    power[2]++;
+                    money -= 10;
+                    printf("You have %d invincibility powers!                ", power[2]);
                 }
                 getCollide(1, 1);
             }
